@@ -4,9 +4,9 @@ from django.db import models
 class Class(models.Model):
     class_lecture = models.CharField(max_length=20)
     class_capacity = models.PositiveSmallIntegerField()
-    class_name = models.CharField()
+    class_name = models.CharField(max_length=20)
     class_time= models.TimeField()
-    class_id = models.IntegerField()
+    class_id = models.PositiveSmallIntegerField()
     
 
 

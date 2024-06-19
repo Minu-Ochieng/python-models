@@ -4,8 +4,8 @@ from django.db import models
 class Teachers(models.Model):
     teacher_name = models.CharField(max_length=20)
     teacher_id = models.IntegerField()
-    teacher_course = models.CharField()
-    teacher_class = models.CharField()
+    teacher_course = models.CharField(max_length=20)
+    teacher_class = models.CharField(max_length=20)
     teacher_occupation = models.CharField(max_length=20)
     teacher_description= models.TextField()
 

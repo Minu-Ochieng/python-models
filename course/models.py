@@ -4,8 +4,8 @@ from django.db import models
 class Course(models.Model):
     course_name = models.CharField(max_length=20)
     course_code = models.PositiveSmallIntegerField()
-    course_instructor = models.CharField()
-    course_assigment= models.CharField()
+    course_instructor = models.CharField(max_length=20)
+    course_assigment= models.CharField(max_length=20)
     course_level = models.IntegerField()
     
 
