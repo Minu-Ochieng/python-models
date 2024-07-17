@@ -1,19 +1,20 @@
+
 from django.db import models
-from student.models import Student
-# Create your models here.
+
+
+
 class Class(models.Model):
-    class_rules=models.TextField(max_length=20)
-    class_capacity=models.SmallIntegerField()
-    class_performance=models.CharField(max_length=30)
-    class_lecture=models.CharField(max_length=30)
-    class_id=models.SmallIntegerField()
-    class_name=models.CharField(max_length=30)
-    class_representative=models.CharField(max_length=30)
-    class_description=models.TextField(max_length=30)
-    class_table_number=models.SmallIntegerField()
-    class_bio=models.CharField(max_length=30)
-    class_rules=models.CharField(max_length=30)
-    student = models.ForeignKey(Student, on_delete=models.CASCADE)
-    
+    class_name = models.CharField(max_length=100)
+    class_code = models.CharField(max_length=50,primary_key=True)
+    room_allocation = models.CharField(max_length=100)
+    no_of_tables = models.PositiveSmallIntegerField()
+    no_of_students = models.PositiveSmallIntegerField()
+    class_representative = models.CharField(max_length=100)
+    class_goals = models.TextField()
+    class_meeting = models.CharField(max_length=100)
+    period_entity = models.CharField(max_length=100)
+    # course_name = models.ForeignKey(Course, on_delete=models.CASCADE)
     def __str__(self):
-        return f"{self.class_bio} {self.class_description}"
+        return f"{self.class_name}"
+    
+# Create your models here.

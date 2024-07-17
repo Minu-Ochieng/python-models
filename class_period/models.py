@@ -1,22 +1,20 @@
 from django.db import models
 
-from course.models import Courses
-
-# from st.models import student
-from student.models import Student
+from django.db import models
+from course.models import Course
+from django.db.models.manager import BaseManager
+from django.db import models
+from datetime import time
 # Create your models here.
 
-class Class_Period(models.Model):
-    id = models.AutoField(primary_key=True)
-    name = models.CharField(max_length = 30)
+class ClassPeriod(models.Model):
+    ## Class Period Details
     start_time = models.TimeField()
-    end_date = models.TimeField()
-    course = models.ForeignKey(Courses, on_delete=models.SET_NULL, null=True, related_name='student_class')
-    student_class = models.ForeignKey(Student,on_delete = models.SET_NULL, null = True, related_name ='course' )
-    day_of_week = models.CharField(max_length = 30)
-    created_at = models.DateField()
-    updated_at = models.DateField()
-
-
+    end_time = models.TimeField()
+    day_of_week = models.CharField(max_length=20)
+    objects: BaseManager["ClassPeriod"]
+    ## Relationship to Course
+    course = models.ForeignKey(Course, on_delete=models.CASCADE, related_name='class_periods')
+    classroom = models.CharField(max_length=50)
     def __str__(self):
-        return f"{self.name} {self.updated_at}"
+        return f"{self.day_of_week} ({self.start_time} - {self.end_time})"
