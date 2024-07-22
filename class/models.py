@@ -6,9 +6,9 @@ from django.db import models
 class Class(models.Model):
     class_name = models.CharField(max_length=100)
     class_code = models.CharField(max_length=50,primary_key=True,blank=True)
-    room_allocation = models.CharField(max_length=100)
-    no_of_tables = models.PositiveSmallIntegerField(blank=True)
-    no_of_students = models.PositiveSmallIntegerField(blank=False)
+    room_allocation = models.CharField(max_length=100,default=0)
+    no_of_tables = models.PositiveSmallIntegerField(default=0)
+    no_of_students = models.PositiveSmallIntegerField(default=0)
     class_representative = models.CharField(max_length=10,blank=True)
     class_goals = models.TextField(blank=True)
     class_meeting = models.CharField(max_length=100,blank=True)

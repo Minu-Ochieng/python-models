@@ -50,17 +50,17 @@ class CourseListView(APIView):
             serializer.save()
             return Response(serializer.data, status=status.HTTP_201_CREATED)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
-# class ClassroomListView(APIView):
-#     def get(self, request):
-#         classrooms = Class.objects.all()
-#         serializer = ClassSerializer(classrooms, many=True)
-#         return Response(serializer.data)
-#     def post(self, request):
-#         serializer = ClassSerializer(data=request.data)
-#         if serializer.is_valid():
-#             serializer.save()
-#             return Response(serializer.data, status=status.HTTP_201_CREATED)
-#         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+class ClassroomListView(APIView):
+    def get(self, request):
+        classrooms = Class.objects.all()
+        serializer = ClassSerializer(classrooms, many=True)
+        return Response(serializer.data)
+    def post(self, request):
+        serializer = ClassSerializer(data=request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data, status=status.HTTP_201_CREATED)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 class ClassPeriodListView(APIView):
     def get(self, request):
         periods = ClassPeriod.objects.all()

@@ -1,4 +1,4 @@
-from  django.urls import path,
+from  django.urls import path
 from .views import StudentListView
 from .views import ClassPeriodListView
 from .views import CourseListView

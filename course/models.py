@@ -4,17 +4,17 @@ from django.db.models.manager import BaseManager
 
 
 class Course(models.Model):
-    course_id = models.CharField(max_length=100,primary_key=True)
-    course_trainer = models.CharField(max_length=100)
-    course_objective = models.CharField(max_length=255)
-    course_duration = models.DurationField(blank=True)
+    course_id = models.CharField(max_length=100,primary_key=True,default=0)
+    course_trainer = models.CharField(max_length=100,blank=True)
+    course_objective = models.CharField(max_length=255,blank=True)
+    course_duration = models.DurationField(default=0)
     course_description = models.TextField(blank=True)
-    pass_mark = models.IntegerField(blank=True)
-    course_title = models.CharField(max_length=100)
-    course_teacher = models.CharField(max_length=100)
-    course_resources = models.CharField(max_length=255)
-    teaching_assistant = models.CharField(max_length=100)
-    department = models.CharField(max_length=100)
+    pass_mark = models.IntegerField(default=0)
+    course_title = models.CharField(max_length=100,blank=True)
+    course_teacher = models.CharField(max_length=100,blank=True)
+    course_resources = models.CharField(max_length=255,blank=True)
+    teaching_assistant = models.CharField(max_length=100,blank=True)
+    department = models.CharField(max_length=100,blank=True)
 
     objects : BaseManager["Course"]
 
