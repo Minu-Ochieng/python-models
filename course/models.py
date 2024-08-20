@@ -16,11 +16,9 @@ class Course(models.Model):
     teaching_assistant = models.CharField(max_length=100,blank=True)
     department = models.CharField(max_length=100,blank=True)
 
-    objects : BaseManager["Course"]
 
 
 
 
     def __str__(self):
         return f"{self.course_title}"
-# Create your models here.
